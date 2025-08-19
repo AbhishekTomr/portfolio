@@ -5,7 +5,6 @@
 }
 
 .intro-box-wrapper {
-  border: 1px solid green;
   height: 100%;
   width: 50%;
   display: flex;
@@ -34,11 +33,35 @@
   width: 350px;
   display: flex;
   padding: 10px;
+  margin: 10px 0;
   justify-content: center;
 }
 
 .intro-box-wrapper .contact-me-options .icon {
   /* border: 1px solid red; */
   margin: 0 10px; /* height: 100px; */
-  color: inherit !important;
+  color: inherit;
+  cursor: pointer;
+}
+
+.about-me-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  background-color: #a6a6a6;
+}
+
+.about-me {
+  width: 500px;
+}
+
+.about-me h3 {
+  display: block;
+  padding: 10px 0;
+}
+.about-me p {
+  margin-bottom: 24px;
 }
