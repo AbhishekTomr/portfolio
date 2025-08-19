@@ -14,6 +14,7 @@ const LinkIcons = (props: Props) => {
       <Link
         href={"https://www.linkedin.com/in/abhishektomar213/"}
         className={styles.icon}
+        target={"_blank"}
       >
         <LinkedIn
           sx={{
@@ -32,7 +33,11 @@ const LinkIcons = (props: Props) => {
           }}
         />
       </Tooltip>
-      <Link href={"https://github.com/AbhishekTomr"} className={styles.icon}>
+      <Link
+        href={"https://github.com/AbhishekTomr"}
+        className={styles.icon}
+        target={"_blank"}
+      >
         <GitHub
           sx={{
             height: 30,

@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { Button as MuiButton, styled } from "@mui/material";
+import { DOWNLOAD_TYPE } from "@/helpers/helpers";
 
 type Props = {
   className?: string;
   children: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: (type: DOWNLOAD_TYPE) => void;
 };
 
 const CustomButton = styled(MuiButton)(() => ({
@@ -16,6 +17,7 @@ const CustomButton = styled(MuiButton)(() => ({
   fontWeight: "bold",
   padding: "8px 24px",
   marginRight: "10px",
+  minWidth: "200px",
   "&:hover": {
     backgroundColor: "#000000",
   },
