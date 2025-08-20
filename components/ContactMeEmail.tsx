@@ -12,10 +12,11 @@ import Button from "./Button";
 import EmailIcon from "@mui/icons-material/Email";
 import SubjectIcon from "@mui/icons-material/Subject";
 import PersonIcon from "@mui/icons-material/Person";
-import { sendMail } from "@/actions/contact-me";
-import { initialErrorState, initialFormState } from "@/helpers/constant";
+import { sendEMail } from "@/actions/contact-me";
+import { initialFormState } from "@/helpers/constant";
 import styles from "../app/page.module.css";
 import { useFormStatus } from "react-dom";
+import { formState } from "@/helpers/types";
 
 const SubmitButton = () => {
   const formStatus = useFormStatus();
@@ -33,14 +34,17 @@ interface EmailPopupProps {
 }
 
 const EmailPopup: React.FC<EmailPopupProps> = ({ open, onClose }) => {
-  const [formState, formAction] = useActionState(sendMail, initialFormState);
+  const [formState, formAction] = useActionState<formState, FormData>(
+    sendEMail,
+    initialFormState
+  );
   const { errors } = formState;
 
   useEffect(() => {
     if (formState.success) {
       onClose();
     }
-  }, [formState]);
+  }, [formState, onClose]);
 
   return (
     <Dialog

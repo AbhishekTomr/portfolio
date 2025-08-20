@@ -1,12 +1,9 @@
 import React from "react";
 import style from "../app/page.module.css";
 import { Box, Typography } from "@mui/material";
-import Button from "./Button";
 import ActionButtons from "./ActionButtons";
 
-type Props = {};
-
-function AboutMe({}: Props) {
+function AboutMe() {
   return (
     <Box className={style["about-me-wrapper"]}>
       <Box className={style["about-me"]}>

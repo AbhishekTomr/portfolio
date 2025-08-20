@@ -6,9 +6,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "../app/page.module.css";
 
-type Props = {};
-
-const LinkIcons = (props: Props) => {
+const LinkIcons = () => {
   return (
     <>
       <Link

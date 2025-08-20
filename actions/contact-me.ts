@@ -1,44 +1,34 @@
 "use server";
 import nodemailer from "nodemailer";
 
-import { initialErrorState, initialFormState } from "@/helpers/constant";
+import { initialErrorState } from "@/helpers/constant";
 import { formState } from "@/helpers/types";
 
-export async function sendMail(
+export async function sendEMail(
   previousState: formState,
-  formData: FormData,
-  reset?: boolean
-) {
-  if (reset) {
-    return initialFormState;
-  }
+  formData: FormData
+): Promise<formState> {
   const errors = { ...initialErrorState };
   try {
     const from = formData.get("from");
     const subject = formData.get("subject");
     const senderName = formData.get("senderName");
     const body = formData.get("body");
+
     if (!from) {
       errors.from = "Email is required";
     } else if (!/^[^@]+@[^@]+\.[^@]+$/.test(from as string)) {
       errors.from = "Invalid email format";
     }
 
-    if (!subject) {
-      errors.subject = "Subject is required";
-    }
-
-    if (!senderName) {
-      errors.senderName = "Sender name is required";
-    }
-
-    if (!body) {
-      errors.body = "Message body is required";
-    }
+    if (!subject) errors.subject = "Subject is required";
+    if (!senderName) errors.senderName = "Sender name is required";
+    if (!body) errors.body = "Message body is required";
 
     if (Object.values(errors).some((msg) => msg && msg.length > 0)) {
       return { ...previousState, errors, success: false };
     }
+
     await sendEmailViaNode(
       from as string,
       subject as string,
@@ -46,11 +36,14 @@ export async function sendMail(
       body as string
     );
 
-    return { success: true, errors };
-    // logic to send mail.
-  } catch (err: unknown) {
+    return { ...previousState, success: true, errors };
+  } catch (err) {
     console.error(err);
-    throw new Error(err);
+    return {
+      ...previousState,
+      success: false,
+      errors: { ...errors, body: "Something went wrong" },
+    };
   }
 }
 

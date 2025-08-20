@@ -5,9 +5,7 @@ import { Box } from "@mui/material";
 import Button from "./Button";
 import { DOWNLOAD_TYPE, handleDownload } from "@/helpers/helpers";
 
-type Props = {};
-
-function ActionButtons({}: Props) {
+function ActionButtons() {
   return (
     <Box className={styles["action-btn-wrap"]}>
       <Button onClick={handleDownload.bind(null, DOWNLOAD_TYPE.RESUME)}>
