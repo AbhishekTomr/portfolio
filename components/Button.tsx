@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
 import { Button as MuiButton, styled } from "@mui/material";
-import { DOWNLOAD_TYPE } from "@/helpers/helpers";
 
 type Props = {
   className?: string;
   children: React.ReactNode;
-  onClick: (type: DOWNLOAD_TYPE) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: "submit" | "button";
+  form?: string;
+  disabled?: boolean;
 };
 
 const CustomButton = styled(MuiButton)(() => ({
@@ -23,9 +25,23 @@ const CustomButton = styled(MuiButton)(() => ({
   },
 }));
 
-const Button = ({ className, children, onClick }: Props) => {
+const Button = ({
+  className,
+  children,
+  onClick,
+  type = "button",
+  form,
+  disabled = false,
+}: Props) => {
   return (
-    <CustomButton className={className} onClick={onClick} variant="contained">
+    <CustomButton
+      className={className}
+      onClick={onClick}
+      variant="contained"
+      type={type}
+      form={form}
+      disabled={disabled}
+    >
       {children}
     </CustomButton>
   );

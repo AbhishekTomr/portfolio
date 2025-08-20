@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import styles from "../app/page.module.css";
 import Image from "next/image";
 import ProfilePic from "../assets/profile.png";
 import LinkIcons from "./LinkIcons";
+import ContactMe from "./ContactMe";
 
 const IntroBox = () => {
   return (
@@ -24,6 +25,7 @@ const IntroBox = () => {
       <Box className={styles["contact-me-options"]}>
         <LinkIcons />
       </Box>
+      <ContactMe />
     </Box>
   );
 };

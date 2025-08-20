@@ -65,3 +65,8 @@
 .about-me p {
   margin-bottom: 24px;
 }
+
+.err {
+  color: #ff0000;
+  font-size: 14px;
+}
