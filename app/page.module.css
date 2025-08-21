@@ -2,15 +2,16 @@
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-flow: row nowrap;
 }
 
 .intro-box-wrapper {
-  height: 100%;
-  width: 50%;
+  flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  padding: 24px;
 }
 
 .intro-box-wrapper .profile-pic {
@@ -21,11 +22,13 @@
 .intro-box-wrapper .main-heading {
   /* border: 1px solid red; */
   /* margin: 5px 0; */
+  text-align: center;
 }
 
 .intro-box-wrapper .sub-heading {
   /* border: 1px solid red; */
   /* margin: 5px; */
+  text-align: center;
 }
 
 .intro-box-wrapper .contact-me-options {
@@ -49,8 +52,7 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  height: 100%;
+  flex-grow: 1;
   background-color: #a6a6a6;
 }
 
@@ -63,10 +65,25 @@
   padding: 10px 0;
 }
 .about-me p {
-  margin-bottom: 24px;
 }
 
 .err {
   color: #ff0000;
   font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .about-me {
+    width: 100%;
+    text-align: center;
+  }
+  .about-me button {
+    margin: 10px;
+  }
 }
