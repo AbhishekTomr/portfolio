@@ -64,7 +64,9 @@
   display: block;
   padding: 10px 0;
 }
-.about-me p {
+
+.about-me .action-btn-wrap {
+  padding: 20px 0;
 }
 
 .err {
